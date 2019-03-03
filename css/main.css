@@ -41,3 +41,9 @@ ul.posts {
 ul.posts li {
     list-style: none;
 }
+
+#me {
+	   width:400px;
+	   float:center;
+	   margin-right:45;
+}
