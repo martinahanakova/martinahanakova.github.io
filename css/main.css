@@ -43,7 +43,12 @@ ul.posts li {
 }
 
 #me {
-	   width:400px;
-	   float:center;
-	   margin-right:45;
+  width:70%;	 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:50px;
+  margin-bottom:150;
+  border-style:groove;
+  border-color:black;
 }
