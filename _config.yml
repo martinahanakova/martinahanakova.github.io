@@ -1,3 +1,6 @@
 name: Martina Hanáková, Personal website
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+collections:
+  interests:
+    output: true
+    permalink: /interests/:title
