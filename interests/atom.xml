@@ -5,22 +5,21 @@ layout: feed
 <feed xmlns="http://www.w3.org/2005/Atom">
 
 	<title>My interests</title>
-	<link href="http://martinahanakova.github.io/blog/atom.xml" rel="self"/>
-	<link href="http://martinahanakova.github.io/blog"/>
+	<link href="http://martinahanakova.github.io/interests/atom.xml" rel="self"/>
+	<link href="http://martinahanakova.github.io/interests"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://martinahanakova.github.io/blog</id>
+	<id>http://martinahanakova.github.io/interests</id>
 	<author>
 		<name>Martina Hanáková</name>
 		<email>mata.hanakova@gmail.com</email>
 	</author>
 
-	{% for post in site.posts %}
+	{% for interest in site.interests %}
 		<entry>
 			<title>{{ post.title }}</title>
-			<link href="http://martinahanakova.github.io{{ post.url }}"/>
-			<updated>{{ post.date | date_to_xmlschema }}</updated>
+			<link href="http://martinahanakova.github.io{{ interest.url }}"/>
 			<id>http://martinahanakova.github.io{{ interest.id }}</id>
-			<content type="html">{{ post.content | xml_escape }}</content>
+			<content type="html">{{ interest.content | xml_escape }}</content>
 		</entry>
 	{% endfor %}
 

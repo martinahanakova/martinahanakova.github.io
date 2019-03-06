@@ -4,3 +4,5 @@ collections:
   interests:
     output: true
     permalink: /interests/:title
+plugins:
+  - jemoji

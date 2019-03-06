@@ -1,7 +1,7 @@
 ---
 layout: interest
-title: "lol"
-image: "me.jpg"
+title: "Lyžovanie"
+image: "lyzovanie.jpg"
 ---
 
 Rada lyzujem
