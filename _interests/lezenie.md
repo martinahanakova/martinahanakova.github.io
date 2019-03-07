@@ -1,5 +1,5 @@
 ---
 layout: interest
-title: "Lezenie"
+title: "Lezenie:mountain:"
 image: "lezenie.jpg"
 ---

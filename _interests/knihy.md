@@ -1,5 +1,5 @@
 ---
 layout: interest
-title: "Knihy"
-image: "titlePicture.jpg"
+title: "Knihy:books:"
+image: "knihy.jpg"
 ---

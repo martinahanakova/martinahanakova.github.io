@@ -1,7 +1,12 @@
 ---
 layout: interest
-title: "Lyžovanie"
+title: "Lyžovanie:skier::snowflake:"
 image: "lyzovanie.jpg"
+
+content1: rada lyzujem
+content2: a nerada padam
 ---
 
-Rada lyzujem
+I'm the main body content.
+
+Rada lyžujem.

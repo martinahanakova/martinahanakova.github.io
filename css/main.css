@@ -1,26 +1,41 @@
 body {
     margin: 60px auto;
-    width: 70%;
+    margin-top: 0;
+    width: 80%;
 }
-nav ul, footer ul {
+nav ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
-    padding: 0px;
+    padding: 4px;
     list-style: none;
     font-weight: bold;
+    font-size: 25px;
+    background-color: darkgreen;
+    margin-top: 0;
+}
+footer ul {
+  font-family:'Helvetica', 'Arial', 'Sans-Serif';
+  padding: 0px;
+  list-style: none;
+  font-weight: bold;
 }
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
+footer a img {
+  width: 20px;
+  height: 20px;
+}
 a {
     text-decoration: none;
-    color: #999;
+    color: #000000;
 }
+
 a:hover {
     text-decoration: underline;
 }
 h1 {
-    font-size: 3em;
+    font-size: 2.8em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
 p {
@@ -35,7 +50,7 @@ footer {
 
 ul.posts {
     margin: 20px auto 40px;
-    font-size: 1.5em;
+    font-size: 3em;
 }
 
 ul.posts li {
@@ -54,10 +69,37 @@ ul.posts li {
 }
 
 #interest {
-  width:30%;
-  height: 30%;
+  width:40%;
+  height: 40%;
+  position: left;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-style:groove;
+}
+
+img {
+  max-width: 100%;
+}
+
+a img {
+  width: 40px;
+  height: 40px;
+
+  #interest {
+    width:40%;
+    height: 40%;
+    style="background-image
+    position: auto;
+    display: block;
+  }
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
