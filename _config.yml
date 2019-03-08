@@ -3,10 +3,9 @@ markdown: kramdown
 collections:
   interests:
     output: true
-    permalink: /interests/:title
-collections:
+    permalink: /interests/:title/
   projects:
     output: true
-    permalink: /projects/:title
+    permalink: /projects/:title/
 plugins:
   - jemoji

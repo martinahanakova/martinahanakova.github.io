@@ -3,6 +3,14 @@ body {
     margin-top: 0;
     width: 80%;
 }
+ul.bp li {
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #333;
+}
+ul.bp li ul li {
+  font-size: 1em;
+}
 nav ul{
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 4px;
@@ -99,4 +107,23 @@ a img {
     position: auto;
     display: block;
   }
+}
+.sidenavigation {
+  width: 12%;
+  font-size: 2em;
+}
+
+.content {
+  width: 75%;
+  position: absolute;
+  right: 0;
+  margin-left: 150px;
+}
+nav.side{
+  margin-top: 50;
+}
+nav.side ul li {
+  font-family:'Helvetica', 'Arial', 'Sans-Serif';
+  font-size: 22px;
+  margin-top: 50;
 }
