@@ -16,7 +16,7 @@ layout: feed
 
 	{% for interest in site.interests %}
 		<entry>
-			<title>{{ post.title }}</title>
+			<title>{{ interest.title }}</title>
 			<link href="http://martinahanakova.github.io{{ interest.url }}"/>
 			<id>http://martinahanakova.github.io{{ interest.id }}</id>
 			<content type="html">{{ interest.content | xml_escape }}</content>

@@ -6,7 +6,7 @@ title: Moje záujmy
 	<ul class="posts">
 
 	  {% for interest in site.interests %}
-	    <li><a href="{{ interest.url }}" title="{{ interest.title }}">{{ interest.title }}</a></li>
+	    <li><a href="{{ interest.url }}" title="{{ interest.title }}" id="interesttitle">{{ interest.title }}</a></li>
 			<img src="{{ interest.image }}" id="interest">
 	  {% endfor %}
 	</ul>
