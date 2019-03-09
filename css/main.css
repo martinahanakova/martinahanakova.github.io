@@ -157,7 +157,7 @@ nav.side ul li {
 /* Style page content */
 .main {
   margin-left: 100px;
-  margin-top: 95px;
+  margin-top: 50px;
   padding: 0px 10px;
 }
 
@@ -181,4 +181,11 @@ nav.side ul li {
   content: "";
   display: table;
   clear: both;
+}
+
+section.doc p {
+  font-size: .8em;
+}
+section.doc ul li {
+  font-size: .8em;
 }

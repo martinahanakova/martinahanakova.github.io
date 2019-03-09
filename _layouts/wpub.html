@@ -8,15 +8,16 @@ title: Webové publikovanie
     <H2>Webové publikovanie</h2>
 
     <div class="sidenav">
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <a href="/wpub/1">1. Zadanie</a>
+      <a href="/wpub/2">2. Zadanie</a>
+      <a href="/wpub/3">3. Zadanie</a>
     </div>
   </div>
   <div class="text">
     <div class="main">
-      ...kjbkbiqwipehwpoenôlw, dsxbssodnw
+      <h2>{{ page.subtitle }}</h2>
+      {{content}}
+      Naposledy upravené: {{ site.time | date_to_string }}
     </div>
   </div>
 </div>
