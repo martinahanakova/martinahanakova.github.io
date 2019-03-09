@@ -1,6 +1,6 @@
 ---
 layout: interest
-title: "Lezenie:mountain:"
+title: ":mountain: Lezenie"
 image: "images/lezenie.jpg"
 
 content1: <p>S lezením som prvýkrát stretla ešte ako malá. Teta a ujo nás zobrali na jednu ferratu do Rakúska. Prvých 5 minút

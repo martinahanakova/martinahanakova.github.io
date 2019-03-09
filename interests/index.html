@@ -3,10 +3,14 @@ layout: default
 title: Moje záujmy
 ---
 	<h1>{{ page.title }}</h1>
-	<ul class="posts">
+	<ul class="posts interest-list">
 
 	  {% for interest in site.interests %}
-	    <li><a href="{{ interest.url }}" title="{{ interest.title }}" id="interesttitle">{{ interest.title }}</a></li>
-			<img src="{{ interest.image }}" id="interest">
+	    <li class="interest-item">
+				<a href="{{ interest.url }}" title="{{ interest.title }}" id="interesttitle">
+					{{ interest.title }}
+				</a>
+				<img src="{{ interest.image }}" id="interest">
+			</li>
 	  {% endfor %}
 	</ul>

@@ -1,6 +1,6 @@
 ---
 layout: interest
-title: "Lyžovanie:skier::snowflake:"
+title: ":skier::snowflake: Lyžovanie"
 image: "images/lyzovanie.jpg"
 
 content1: <p>Lyžovanie je mojím najobľúbenejším zimným športom. Okrem samotného lyžovania zbožňujem aj zimnú prírodu
