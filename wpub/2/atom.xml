@@ -1,0 +1,26 @@
+---
+layout: feed
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>My interests</title>
+	<link href="http://martinahanakova.github.io/interests/atom.xml" rel="self"/>
+	<link href="http://martinahanakova.github.io/interests"/>
+	<updated>{{ site.time | date_to_xmlschema }}</updated>
+	<id>http://martinahanakova.github.io/interests</id>
+	<author>
+		<name>Martina Hanáková</name>
+		<email>mata.hanakova@gmail.com</email>
+	</author>
+
+	{% for interest in site.interests %}
+		<entry>
+			<title>{{ interest.title }}</title>
+			<link href="http://martinahanakova.github.io{{ interest.url }}"/>
+			<id>http://martinahanakova.github.io{{ interest.id }}</id>
+			<content type="html">{{ interest.content | xml_escape }}</content>
+		</entry>
+	{% endfor %}
+
+</feed>

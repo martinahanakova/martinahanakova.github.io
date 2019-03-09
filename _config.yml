@@ -9,3 +9,4 @@ collections:
     permalink: /projects/:title/
 plugins:
   - jemoji
+  - jekyll-feed
