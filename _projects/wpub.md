@@ -34,18 +34,65 @@ subtitle: "1. Zadanie"
 
   <h3>2 Prvky použité v šablónach</h3>
     <h4>2.1 Premenné</h4>
+      <p>V projekte som použila nasledovné premenné:</p>
+        <ul>
+          <li>interests</li>
+          <p>Táto premenná označuje kolekciu záujmov. Vrámci tejto sú zahrnuté ďalšie tri premenné (title, url, image),
+          ktoré obsahujú názvy podstránok, ich url adresy a obrázky reprezentujúce záujmy.</p>
+          <li>projects</li>
+          <p>Táto premenná označuje kolekciu projektov, čo sú vlastne moje profesné projekty aktivity alebo záujmy. Vrámci
+          tejto sú zahrnuté ďalšie dve premenné (title, url), ktoré obsahujú názvy podstránok a ich url adresy.</p>
+          <li>content1 a content2</li>
+          <p>Tieto dve premenné mi pomáhajú rozdeliť si content v layoute do dvoch stĺpcov. Síce som neskôr našla spôsob ako to
+          spraviť aj bez nich, ale zatiaľ som to nechala tak a v budúcnosti to možno prerobím.</p>
+          <li>subtitle</li>
+          <p>Táto premenná slúži na zobrazenie správneho nadpisu (titulku) zadania v sekcii webové publikovanie. Spravila som to
+          takto preto, aby názov stránky mohol zostať Webové publikovanie.</p>
+          <li>month</li>
+          <p>Premenná slúži na odloženie si mesiaca z aktuálneho dátumu. Túto premennú neskôr používam na to, aby som zistila,
+          ktorý mesiac momentálne je a podľa toho zobrazila hlášku (pre každý mesiac mám inú hlášku a zobrazujem ju v časti
+          about).</p>
+          <li>message</li>
+          <p>Do tejto premennej priraďujem hlášku, ktorú potom zobrazím.</p>
+        </ul>
 
     <h4>2.2 Kolekcie</h4>
     <p>V tomto projekte som použila dve kolekcie. Prvou sú moje obľúbené záujmy a druhou projekty zo školského a profesného
     života.</p>
 
     <h4>2.3 Filtre a tagy</h4>
+    <p>V projekte som použila nasledovné filtre:</p>
+      <ul>
+        <li>{% raw %}{{ 'now' | date: "%m%Y" }}{% endraw %}</li>
+        <p>Tento filter používam na výber mesiaca alebo roku z dátumu. Aktuálny rok sa nachádza v pätičke a aktuálny
+        mesiac používam na vybratie správnej hlášky.</p>
+        <li>{% raw %}{{ site.time | date_to_string }}{% endraw %}</li>
+        <p>Filter používam na zobrazenie dátumu, kedy bola naposledy upravená sekcia webové publikovanie.</p>
+        <li>{% raw %}{{ project/interst.content | xml_escape }}{% endraw %}</li>
+        <p>Tento filter mi slúži na vyescapovanie textu obsahu stránky pre potreby použitia v xml. V tomto prípade sa
+        používa v súbore atom.xml, ktorý generuje pomocou pluginu Atom.</p>
+      </ul>
+
+    <p>V projekte som použila nasledovné tagy:</p>
+      <ul>
+        <li>{% raw %}{% for %}{% endfor %}{% endraw %}</li>
+        <p>Tieto tagy som použila na iterovanie cez kolekciu záujmov aj projektov.</p>
+        <li>{% raw %}{% if %}{% elsif %}{% endif %}{% endraw %}</li>
+        <p>Tieto tagy využívam pri rozhodovaní sa, ktorý mesiac je aktuálny a na základe rohodutí potom vyberám tú správnu
+        hlášku</p>
+        <li>{% raw %}{% capture %}{% endcapture %}{% endraw %}</li>
+        <p>Tieto tagy mi slúžia na správne naplnenie premennej month.</p>
+        <li>{% raw %}{% assign %}{% endraw %}</li>
+        <p>Tento tag používam na priradenie hlášky do premennej message.</p>
+      </ul>
+
+      <p>Okrem toho som použila raw a endraw na zrušenie významu filtrov a tagov v dokumente.</p>
 
     <h4>2.4 Pluginy</h4>
     <p>Použila som tiež dva pluginy:
       <ul>
         <li>jekyll-feed</li>
-        <p>Tento plugin pre kolekcie záujmy a projeky vygeneruje RSS.</p>
+        <p>Tento plugin pre kolekcie záujmy a projeky vygeneruje Atom (niečo ako RSS).</p>
         <li>jemoji</li>
         <p>Plugin jemoji umožňuje použitie rôzných smajlíkov a emotikonov na stránke.</p>
       </ul>
@@ -68,5 +115,7 @@ subtitle: "1. Zadanie"
   </ul>
 
   <h3>4 Použité štýly</h3>
+  <p>Na vytvorenie dizajnu stránky som si napísala vlastné css, pričom niekedy som sa inšpirovala tutoriálmi zo stránky
+  W3Schools.</p>
 
 </section>

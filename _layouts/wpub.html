@@ -16,7 +16,7 @@ title: Webové publikovanie
   <div class="text">
     <div class="main">
       <h2>{{ page.subtitle }}</h2>
-      {{content}}
+      {{ content | markdownify }}
       Naposledy upravené: {{ site.time | date_to_string }}
     </div>
   </div>

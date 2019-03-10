@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About me
+mesiac:
 ---
 
 <div class="blurb">
@@ -19,5 +20,34 @@ title: About me
     a ani ho nikdy ľutovať nebudem. Na škole som stretla množstvo úžasných ľudí, ktorí ma robia stále lepšou a spolu prekonávame
     všetky prekážky. Zistila som, že informatika ma naozaj baví a chcem sa v tejto oblasti ďalej vzdelávať. Ak by toto čítal
     niekto kto ešte váha a bojí sa skúsiť niečo nové, neboj sa buď odvážny/a a splň si svoj sen.</p>
-    <p>Majte pekný deň.</p>
+
+    {% capture month %}{{ 'now' | date: "%m" }}{% endcapture %}
+
+    {% if  {{month}}  == "01" %}
+      {% assign message = "ľadový január" %}
+    {% elsif  {{month}}  == "02" %}
+        {% assign message = "zaujímavý február" %}
+    {% elsif  {{month}}  == "03" %}
+        {% assign message = "marec plný kníh" %}
+    {% elsif  {{month}}  == "04" %}
+        {% assign message = "bláznivý apríl" %}
+    {% elsif  {{month}}  == "05" %}
+        {% assign message = "máj plný lásky" %}
+    {% elsif  {{month}}  == "06" %}
+        {% assign message = "veselý jún" %}
+    {% elsif  {{month}}  == "07" %}
+        {% assign message = "horúci júl" %}
+    {% elsif  {{month}}  == "08" %}
+        {% assign message = "dobrodružný august" %}
+    {% elsif  {{month}}  == "09" %}
+        {% assign message = "ľahký september" %}
+    {% elsif  {{month}}  == "10" %}
+        {% assign message = "október plný jesenných prechádzok" %}
+    {% elsif  {{month}}  == "11" %}
+        {% assign message = "čajíkový november" %}
+    {% elsif  {{month}} == "12" %}
+        {% assign message = "zasnežený december" %}
+    {% endif %}
+
+    <p>Želám ti {{ message }}.</p>
 </div>

@@ -2,7 +2,7 @@
 layout: default
 title: "Bakalárska práca"
 ---
-<h2>Bakalárska práca</h2>
+## Bakalárska práca
 
 Vrámci svojej bakalárskej práce sa venujem výskumu na tému eye-tracking s využítim techniky sledovania pohľadu. Cieľom tejto práce je zistiť črty falošných správ, na základe ktorých ich ľudia identifikujú. Tieto črty sa potom budú dať použiť na natrénovanie klasifikátora.
 
