@@ -1,5 +1,221 @@
 ---
 layout: wpub
 title: Webové publikovanie
-subtitle: 2. Zadanie
+subtitle: 2. Zadanie - DocBook
 ---
+
+<section class="doc">
+  Pri tvorbe zadania 2 som použila svoju bakalársku prácu, ktorú som transformovala z LateX formátu do DocBok formátu
+  pomocou pandoc konvertora. Následne som konvertovaný dokument ďalej upravovala.
+
+  <h4>Členenie textu</h4>
+  <p>
+    <ul>
+      <li>Kapitola</li>
+      <p><code>&lt;chapter&gt;...&lt;/chapter&gt;</code></p>
+      <li>Podkapitola</li>
+      <p><code>&lt;section&gt;...&lt;/section&gt;</code></p>
+      <li>Podpodkapitola</li>
+      <p><code>&lt;section&gt;&lt;section&gt;...&lt;/section&gt;&lt;/section&gt;</code></p>
+      <li>Príloha</li>
+      <p><code>&lt;appendix&gt;...&lt;/appendix&gt;</code></p>
+      <li>Odstavec</li>
+      <p><code>&lt;para&gt;...&lt;/para&gt;</code></p>
+    </ul>
+  </p>
+
+  <h4>Zvýraznenie slov a zvýraznenie členenia textu</h4>
+  <p>
+    <ul>
+      <li>Zvýraznenie slov</li>
+      <code><p>&lt;emphasis role="strong"&gt;...&lt;/emphasis&gt;</p></code>
+      <p>Zvýraznenie textu používam v úvode tretej kapitoly (Experiment) a tiež v prílohe na zvýraznenie hlavičky v tabuľke.</p>
+      <li>Členie textu</li>
+      <code><pre><p>
+        &lt;itemizedlist&gt;
+          &lt;listitem&gt;
+            &lt;para&gt;...&lt;/para&gt;
+          &lt;/listitem&gt;
+        &lt;/itemizedlist&gt;
+      </p></pre></code>
+      <p>Členenie textu pomocou odrážok som použila v sekcii Účastníci.</p>
+      <code><pre><p>
+        &lt;orderedlist&gt;
+          &lt;listitem&gt;
+            &lt;para&gt;...&lt;/para&gt;
+          &lt;/listitem&gt;
+        &lt;/orderedlist&gt;
+      </p></pre></code>
+      <p>Číslovaný zoznam som zase použila v sekcii Scenár experimentu.</p>
+    </ul>
+  </p>
+
+  <h4>Odkazy na iné časti vlastného dokumentu</h4>
+  <p>Odkaz na inú časť dokumentu som použila len raz a to v sekcii Automatická detekcia falošných správ.<br/>
+  Použila som na to: <code>&lt;xref linkend="section-id" xrefstyle="template: %n"/&gt;</code>. <br/>
+  V súbore thesis.xsl som pridala <code>&lt;xsl:param name="xref.with.number.and.title" select="0"/&gt;</code>, aby sa
+  zobrazovalo len číslo odkazovanej sekcie alebo kapitoly a nie aj jej celý názov.</p>
+
+  <h4>Poznámka pod čiarou</h4>
+  <p>Vo svojom dokumente mám dve poznámky pod čiarou a obidve sa nachádzajú v sekcii Dotazník. <br/> Na ich vytvorenie som
+  použila <code>&lt;footnote&gt;&lt;para&gt;...&lt;/para&gt;&lt;/footnote&gt;</code></p>
+
+  <h4>Bibliografia a citácie</h4>
+  <p>Na vytvorenie jednotlivých položiek bibliografie som použila nasledovnú konštrukciu: </p>
+    <code><pre><p>
+      &lt;bibliomixed&gt;&lt;abbrev&gt;wu_tracing_2018&lt;/abbrev&gt;
+        &lt;authorgroup&gt;
+          &lt;author&gt;&lt;firstname&gt;Ling&lt;/firstname&gt;&lt;surname&gt;Wu, &lt;/surname&gt;&lt;/author&gt;
+          &lt;author&gt;&lt;firstname&gt;Huan&lt;/firstname&gt;&lt;surname&gt;Liu, &lt;/surname&gt;&lt;/author&gt;
+        &lt;/authorgroup&gt;
+        &lt;isbn&gt;978-1-4503-5581-0&lt;/isbn&gt;
+        &lt;title&gt;Tracing Fake-News Footprints: Characterizing Social Media Messages by How They Propagate.&lt;/title&gt;
+        &lt;bibliomisc&gt;&lt;ulink url="http://dl.acm.org/citation.cfm?doid=3159652.3159677"&gt;&lt;/ulink&gt;&lt;/bibliomisc&gt;
+      &lt;/bibliomixed&gt;
+    </p></pre></code>
+    <p>A na vygenerovanie bibliografie som použila <code>&lt;bibliography&gt;jednotlivé položky bibliografie &lt;/bibliography&gt;</code>.
+    Následnú citáciu som spravila pomocou <code>&lt;citation&gt;wu_tracing_2018&lt;/citation&gt;</code>.</p>
+
+    <h4>Vloženie orázkov a tabuliek</h4>
+    <p>
+      <ul>
+        <li>Obrázky</li>
+        <code><pre><p>
+          &lt;figure id="fakenewsfeaturestable"&gt;
+            &lt;title&gt;Rozdelenie čŕt falošných správ&lt;/title&gt;
+            &lt;mediaobject&gt;
+              &lt;imageobject&gt;
+                &lt;imagedata fileref="images/FakeNewsTable.png" width="100.0%" /&gt;
+              &lt;/imageobject&gt;
+              &lt;textobject&gt;&lt;phrase>Rozdelenie čŕt falošných
+              správ&lt;/phrase&gt;&lt;/textobject&gt;
+            &lt;/mediaobject&gt;
+          &lt;/figure&gt;
+        </p></pre></code>
+        <li>Tabuľky</li>
+        <code><pre><p>
+          &lt;table&gt;
+            &lt;title&gt;
+              Týždenný plán pre druhý semester
+            &lt;/title&gt;
+            &lt;tgroup cols="2"&gt;
+              &lt;colspec align="left" /&gt;
+              &lt;colspec align="left" /&gt;
+              &lt;thead&gt;
+                &lt;row&gt;
+                  &lt;entry&gt;
+                    &lt;emphasis role="strong"&gt;Týždeň&lt;/emphasis&gt;
+                  &lt;/entry&gt;
+                  &lt;entry&gt;
+                    &lt;emphasis role="strong"&gt;Aktivita&lt;/emphasis&gt;
+                  &lt;/entry&gt;
+                &lt;/row&gt;
+              &lt;/thead&gt;
+              &lt;tbody&gt;
+                &lt;row&gt;
+                  &lt;entry&gt;
+                    &lt;emphasis role="strong"&gt;1-2&lt;/emphasis&gt;
+                  &lt;/entry&gt;
+                  &lt;entry&gt;
+                    Analýza existujúcich používateľských štúdií
+                  &lt;/entry&gt;
+                &lt;/row&gt;
+              &lt;/tbody&gt;
+            &lt;/tgroup&gt;
+          &lt;/table&gt;
+        </p></pre></code>
+      </ul>
+    </p>
+    <p>Obrázky sa nachádzajú priebežne v celom dokumente, predovšetkým však v kapitole Exoeriment. Tabuľka sa nachádza
+    v prílohe A. Na obrázky aj tabuľky som sa odkazovala rovnako ako aj na iné časti dokumentu pomocou id obrázku alebo
+    tabuľky.</p>
+    <p>Zoznam obrázkov a zoznam tabuliek spolu s obsahom dokumentu som vygenerovala pomocou:</p>
+    <code><pre><p>
+      &lt;xsl:param name="generate.toc"&gt;
+      book      title,toc,figure,table
+      &lt;/xsl:param&gt;
+    </p></pre></code>
+
+    <h4>Register pojmov</h4>
+    <p>Na vytvorenie registra pojmov som použila: </p>
+    <code><pre><p>
+      &lt;index&gt;
+        &lt;title&gt;Register pojmov&lt;/title&gt;
+      &lt;/index&gt;
+    </p></pre></code>
+    <p>A na označenie jednotlivých položiek v texte som použila:
+      <ul>
+        <li>Prvá úroveň</li>
+        <code><p>&lt;indexterm&gt;&lt;primary&gt;Falošné správy&lt;/primary&gt;&lt;/indexterm&gt;</p></code>
+        <li>Druhá úroveň</li>
+        <code><p>&lt;indexterm&gt;&lt;primary&gt;Dezinformácie&lt;/primary&gt;&lt;secondary&gt;Zámerne vytvorené&lt;/secondary&gt;&lt;/indexterm&gt;</p></code>
+      </ul>
+    </p>
+
+    <h4>Vloženie PDF</h4>
+    <p>Pokúsila som sa vložiť pdf súbor do prílohy B pomocou</p>
+    <code><pre><p>
+      &lt;mediaobject&gt;
+        &lt;imageobject&gt;
+          &lt;imagedata fileref="./appendix/Protokol.pdf" width="100%" contentdepth="100%" format="PDF"/&gt;
+        &lt;/imageobject&gt;
+      &lt;/mediaobject&gt;
+    </p></pre></code>
+    <p>ale z pre mňa doteraz neznámeho dôvodu sa mi toto pdf nezobrazuje aj napriek tomu, že kamaráti použili rovnaký
+    postup a pdf sa im zobrazuje.</p>
+
+    <h4>Úprava číslovania strán</h4>
+    <p>Zo súboru thesis.xsl som odstránila časť, ktorá upravovala číslovanie strán.</p>
+    <code><pre><p>
+      &lt;xsl:template name="page.number.format"&gt;
+        &lt;xsl:param name="element" select="local-name(.)"/&gt;
+
+        &lt;&lt;sl:text&gt;1&lt;/xsl:text&gt;
+      &lt;/xsl:template&gt;
+
+      &lt;xsl:template name="initial.page.number"&gt;
+        &lt;xsl:param name="element" select="local-name(.)"/&gt;
+        &lt;xsl:param name="master-reference" select="''"/&gt;
+
+        &lt;xsl:text&gt;auto&lt;/xsl:text&gt;
+      &lt;/xsl:template&gt;
+    </p></pre></code>
+    <p>Tým, že som odstránila túto časť som ponechala defaultné nastavenie číslovania strán, ktoré úvodné strany čísluje
+    rímskymi číslacami a od prcej kapitoly čísluje arabskými číslicami.</p>
+
+    <h4>Označenie kapitol a príloh</h4>
+    <p>Po zmene českého jazyka na slovenský sa  označenia <i>kapitola</i> a <i>dodatok</i> zobrazovali s malým
+    začiatočným písmenom namiesto veľkého. Tento problém som odstránila úpravou nasledovnej časti kódu v súbore thesis.xsl</p>
+    <code><pre><p>
+      &lt;xsl:template name="chap.title"&gt;
+        &lt;xsl:param name="node" select="."/&gt;
+        &lt;xsl:variable name="id"&gt;
+          &lt;xsl:call-template name="object.id"&gt;
+            &lt;xsl:with-param name="object" select="$node"/&gt;
+          &lt;/xsl:call-template&gt;
+        &lt;/xsl:variable&gt;
+        &lt;fo:block id="{$id}"
+            xsl:use-attribute-sets="chap.label.properties"&gt;
+          &lt;xsl:text&gt;Kapitola &lt;/xsl:text&gt;
+          &lt;xsl:apply-templates select="$node" mode="label.markup"/&gt;
+        &lt;/fo:block&gt;
+        &lt;fo:block xsl:use-attribute-sets="chap.title.properties"&gt;
+            &lt;xsl:apply-templates select="$node" mode="title.markup"/&gt;
+          &lt;/fo:block&gt;
+      &lt;/xsl:template&gt;
+    </p></pre></code>
+    <p>Pre prílohu som použila rovnaký kus kódu, ale namiesto <i>Kapitola</i> je text <i>Dodatok</i>. Tiež som urobila
+    drobnú zmenu v súbore thesis-tp-fo.xsl, kde som zmenila názov volaného templatu z <i>chapappendix</i> na
+    <i>chap</i> pri kapitole a <i>appendix</i> pri prílohe.
+    </p>
+
+    <h4>Titulná strana a anotácia</h4>
+    <p>Upravovala som tiež titulnú stranu a anotáciu. Pri anotácií som použila tagy <code>&lt;simpara&gt;</code>,
+    <code>&lt;?vskip 20pt?&gt;</code> a <code>&lt;?hskip 20pt?&gt;</code> na správne naformátovanie.
+    </p>
+    <p>Pri úprave titulnej strany som v súbore thesis-tp-fo.xsl pridala do templatu <i>book.titlepage.before.verso</i>
+    ďalšie role a to Študijný program, Študijný odbor a Miesto vypracovania. Tiež som odstránila predchádzajúce logo
+    a čiaru na spodku strany.
+    </p>
+
+</section>
