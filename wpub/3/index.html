@@ -3,3 +3,123 @@ layout: wpub
 title: Webové publikovanie
 subtitle: 3. Zadanie
 ---
+
+<section class="doc">
+  <p>
+    V zadaní 3 som vytvorila prezentáciu v XML. Jej schému som definovala v Ralax NG kompaktnej forme a pomocou XSL tranformácií
+    som ju transformovala do XHTML a PDF formátu.
+  </p>
+
+  <h4>Opis a účel navrhnutých elementov</h4>
+  <p>
+    <ul>
+      <li>presentation</li>
+      <p>Koreňový element, ktorý obsahuje všetky nasldujúce elementy.</p>
+      <li>slide</li>
+      <p>Element slide obsahuje všetky elementy, ktoré popisujú obsah na slajde. Môže byť dvoch typov, titulný alebo obsahový.</p>
+      <li>titleSlide</li>
+      <p>
+        Titulný slajd obsahuje nadpis, podnapis a autorov, pričom pre každého autora je zvlášť definované meno a priezvisko.
+        <ul>
+          <li>title</li>
+          <li>subtitle</li>
+          <li>authors</li>
+          <p>
+            <ul>
+              <li>firstname</li>
+              <li>lastname</li>
+            </ul>
+          </p>
+        </ul>
+      </p>
+      <li>header</li>
+      <p>
+        Element header obsahuje nadpis a podnadpis slajdu. Tento element je nepovinný a môže obsahovať aj len nadpis alebo len podnadpis.
+        <ul>
+          <li>title</li>
+          <li>subtitle</li>
+        </ul>
+      </p>
+      <li>content</li>
+      <p>Element content obsahuje všetok obsah slajdu. Obsahuje nižšie definované elementy, v ľubovoľnom počte a poradí, aby
+      mal autor prezentácie možnosť si čo najviac prispôsobiť rozloženie prvkov na slajde.</p>
+      <p>
+        <ul>
+          <li>paragraph</li>
+          <p>
+            Element paragraph obsahuje všetky nižšie uvedené elementy taktiež v ľubovoľnom počte a poradí.
+            <ul>
+              <li>link</li>
+              <p>Hypertextový odkaz.</p>
+              <li>cite</li>
+              <p>Element označuje odkaz na niektorý zo zdrojov bibliografie.</p>
+              <li>highlight</li>
+              <p>Element slúži na zvýraznenie textu. Text môže autor zvýrazniť buď tučným písmom, kurzívou alebo podčiarknutím.</p>
+              <li>code</li>
+              <p>Code slúži na zvýraznenie časti kódu odlišným fontom písma. Taktiež sú zachované všetky medzery a "nové riadky".</p>
+              <li>list</li>
+              <p>Element lists slúži na definovanie zoznamov, či už neusporiadaných alebo číselných.</p>
+              <li>image</li>
+              <p>Slúži na vloženie obrázka. Pri každom obrázku je potrebné definovať jeho zdrojovú adresu, veľkoť a centrovanie.</p>
+            </ul>
+          </p>
+          <li>image</li>
+          <li>code</li>
+          <li>list</li>
+          <p>
+            Element list obsahuje jednotlivé položky zoznamu označené ako <i>item</i>. Každá položka môže obsahovať nižšie
+            uvedené elementy, ktoré slúžia zvýraznenie alebo doplnenie textu v zozname. Zoznam tiež môže obsahovať ďalšie
+            vnorené zoznamy.
+            <ul>
+              <li>link</li>
+              <li>cite</li>
+              <li>highlight</li>
+              <li>code</li>
+              <li>list</li>
+            </ul>
+          </p>
+          <li>columns</li>
+          <p>Umožňuje rozdeliť slajd do dvoch stĺpcov. Každý stĺpec môže obsahovať element paragraph alebo image. Týchto
+            elementov môže obsahovať aj viac.</p>
+        </ul>
+      </p>
+      <li>bibliography</li>
+      <p>
+        Slúži na definovanie použitých zdrojov a literatúry.
+        <ul>
+          <li>abbrev</li>
+          <p>Tento element slúži ako jedinečný identifikátor zdroja. Pomocou neho sa dá v texte na daný zdroj odkazovať.</p>
+          <li>authors</li>
+          <p>Definuje zoznam autorov zdroja.</p>
+          <li>title</li>
+          <li>year</li>
+          <li>link</li>
+        </ul>
+      </p>
+    </ul>
+  </p>
+
+  <h4>XSL transformácie</h4>
+  <p>
+    Na transformáciu xml prezentácie do formátov XHTML a PDF som použila xsl transformácie. Pre každý elemnent som
+    si vytvorila samostaný "template", podľa ktorého príslušný element transformujem. Pre konverziu xml dokumentu do
+    xhtml a pdf som použila skoro rovnaké xsl transformácie. Rozdiel je v pridaní <code>fo:block</code> pri transoformácii
+    do pdf. Pri použití týchto bolokov som tiež musela definovať ich "správanie". To, čo mi v xhtml zabezpečovali
+    rôzne tagy, som teraz musela nastaviť pre fo:blocky pomocou ich atrinútov. Pri niektorých transformáciách som
+    využila aj jazyk XPath, napríklad na zistenie pozície elemntu, čo využívam pri číslovaní slajdov.
+  </p>
+
+  <h4>Parametre</h4>
+  <p>
+    Po vytvorení všetkých transformácií som ešte naformátovala obsah výsdných dokumentov pomocou css alebo atribútov
+    fo:blockov. S tým súvisí aj parametrizácia a teda možnosť nastaviť si niektoré "atribúty" výsledného dokumentu.
+    Pri tvorbe prezentácie umožňujem autorovi nastaviť si vlastnú veľkosť písma pre nadpisy, podnadpisy a paragrafy.
+    Veľkosť písma si môže nastaviť zvlášť pre titulný slajd a potom pre zvyšok prezentácie. Umožňujem mu tiež meniť
+    farbu písma a pozadia. Farbu pozadia môže meniť zvlášť pre jednotlivé časti (header, content a footer). Pre
+    každú časť je možné miesto farby pozadia nastaviť podkladový obrázok. V prípade, že je v parametroch uvedená aj
+    podkladová farba, aj obrázok, zobrazí sa obrázok. Okrem toho ešte umožňujem nastaviť si vlastný font písma a
+    veľkosť obrázka (len pre pdf, pre xhtml je definovaná pomocou atribútov).
+    Parametre sa zvlášť nastavujú pre pdf a zvlásť pre xhtml formát. Robím tak z dôvodu odlišného zobrazovania
+    veľkosti (čo je pre xhtml akurát, je pre pdf príliš veľké).
+  </p>
+</section>
